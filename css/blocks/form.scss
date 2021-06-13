@@ -1,0 +1,189 @@
+.form-section{
+  background: url("../assets/background/bg__forms.jpg") center top no-repeat;
+  background-size: cover;
+  color: #fff;
+  font-size: 16px;
+  line-height: 19px;
+}
+.form-section__container{
+  max-width: 52.2rem;
+  align-items: center;
+  
+  @include phones {
+    width: 95%;
+  }
+}
+
+
+.white__title {
+  color: #fff;
+  margin-bottom: rem(50px);
+  padding-top: rem(38px);
+  font-size: rem(48px);
+
+  @include tablets {
+    margin-bottom: rem(35px);
+  }
+}
+
+.form {
+  display: flex;
+  
+  @include tablets {
+    flex-direction: column;
+    padding: 0 5%;
+  }
+
+  @include phones {
+    padding: 0;
+  }
+}
+
+.form__column {
+  flex: 1;
+  margin-right: rem(20px);
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @include tablets {
+    margin-right: 0;
+    margin-bottom: rem(16px);
+  }
+}
+
+.form__row {
+  display: flex;
+  margin-bottom: rem(14px);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include tablets {
+    margin-bottom: 16px;
+  }
+}
+
+.form__block {
+  flex: 1;
+  margin-right: rem(16px);
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.form__title {
+  color: #fff;
+  font-size: $baseFontSize;
+}
+
+.form__input {
+  width: 100%;
+  border: rem(3px) solid transparent;
+  border-radius: rem(4px);
+  padding: rem(18px) rem(12px);
+
+  &:focus {
+    border-color: #FEDB3F;
+    outline: none;
+  }
+
+  &--textarea {
+    height: rem(160px);
+    resize: none;
+    margin-bottom: rem(15px);
+
+    @include tablets {
+      height: rem(82px);
+    }
+  }
+
+  @include tablets {
+    padding: rem(10px) rem(8px);
+  }
+}
+
+.form__control {
+  display: flex;
+  margin-bottom: rem(22px);
+
+  @include phones {
+    justify-content: center;
+  }
+}
+
+.form__radio {
+  display: flex;
+  cursor: pointer;
+  margin-right: rem(32px);
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &--checkbox {
+    .radio__visible {
+      border-radius: rem(4px);
+
+      &::before {
+        background: url("../assets/icons/checkmark.png") center center no-repeat;
+      }
+    }
+
+    @include tablets {
+      margin-bottom: rem(18px);
+    }
+  }
+}
+
+.radio__item {
+  display: none;
+
+ &:checked ~ .radio__visible {
+  &::before {
+    display: block;
+  }
+ }
+}
+
+.radio__visible {
+  width: rem(24px);
+  height: rem(24px);
+  position: relative;
+  border-radius: 50%;
+  background: #fff;
+  margin-right: rem(10px);
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &::before {
+    content: "";
+    display: none;
+    width: rem(14px);
+    height: rem(14px);
+    background: #FEDB3F;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.radio__title {
+  color: #fff;
+  font-size: $baseFontSize;
+}
+
+.form__btns {
+
+  @include tablets {
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,51 @@
+.fullscreen__menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #333537;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+}
+
+.close__btn {
+  position: absolute;
+  width: rem(22px);
+  height: rem(22px);
+  top: rem(42px);
+  right: rem(42px);
+
+  @include mini {
+    width: rem(44px);
+    height: rem(44px);
+  }
+}
+
+.close__pic {
+  width: 100%;
+  height: 100%;
+  fill: #fff;
+
+}
+
+.menu__list {
+  font-size: rem(36px);
+  text-align: center;
+  line-height: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  color: #fff;
+}
+
+.menu__link {
+  text-decoration: none;
+}

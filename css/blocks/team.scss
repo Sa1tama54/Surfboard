@@ -1,0 +1,169 @@
+*{
+    box-sizing: border-box;
+}
+
+.team__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.team__title {
+    @include tablets {
+        margin-bottom: rem(33px);
+    }
+
+    @include mini {
+        font-size: 25px;
+        line-height: 30px;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+}
+
+.team__list{
+    display: flex;
+    min-width: 100%;
+
+    @include tablets {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &.desktop {
+            display: none;
+        }
+    }
+
+    &.mobile {
+        display: none;
+
+        @include tablets {
+            display: flex;
+        }
+    }
+   
+}
+.team__item{
+    max-width: 13rem;
+    text-align: center;
+    margin-right: rem(20px);
+
+    @include tablets {
+        margin-bottom: 23px;
+    }
+}
+
+.team__member {
+    position: relative;
+
+    @include tablets {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+.team__photo {
+    margin-bottom: 21px;
+    height: rem(290px);
+    
+    @include tablets {
+        display: none;
+    }
+
+    &--human-1 {
+        background: url("../assets/avatars/member_1.jpg") center center / cover no-repeat;
+    }
+
+    &--human-2 {
+        background: url("../assets/avatars/member_2.jpg") center center / cover no-repeat;
+    }
+
+    &--human-3 {
+        background: url("../assets/avatars/member_3.jpg") center center / cover no-repeat;
+    }
+
+    &--human-4 {
+        background: url("../assets/avatars/member_4.jpg") center center / cover no-repeat;
+    }
+}
+
+.team__item-active {
+
+    .team__value {
+        @include tablets {
+            margin-bottom: rem(15px);
+        }
+    }
+
+    .team__photo {
+        @include tablets {
+            display: block;
+            text-align: center;
+        }
+    }    
+}
+
+.team__value {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+    cursor: pointer;
+    
+    @include tablets {
+        margin-bottom: 0;
+    }
+}
+
+.team__name {
+    font-weight: bold;
+    position: relative;
+    margin-right: rem(4px);
+    font-size: $baseFontSize;
+
+    @include tablets {
+        font-size: rem(21px);
+    }
+}
+
+.team__icon {
+    transition: .1s ease-in-out;
+}
+
+.team__pic {
+    width: 9px;
+    height: 9px;
+    fill: #000;
+}
+
+.team__content {
+    height: 0;
+    overflow: hidden;
+    transition: height .3s ease-in-out
+}
+
+.team__actions{
+    color:#666;
+    margin-top: 0.5rem;
+
+    @include tablets {
+        color:#666;
+        margin-top: 0.1rem;
+    }
+}
+.team__item-active {
+
+    .team__icon {
+        transform: rotate(180deg);
+        transition: .1s ease-in-out;
+    }
+
+    .team__text-block{
+        height: 100%;
+        overflow: hidden;
+    }
+}

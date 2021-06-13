@@ -1,0 +1,247 @@
+*{
+    box-sizing: border-box;
+}
+.products{
+    background-color:#F8FAF9;;
+}
+
+.products-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 60rem;
+}
+
+.products__slider-element{
+    display: flex;
+    justify-content: space-between;
+
+    @include tablets {
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+}
+
+.products__slider-container{
+    display: flex;
+    justify-content: space-between;
+    min-width: 100%;
+}
+
+.products__img {
+    background: url("../assets/background/product.png") center center no-repeat;
+    min-width: 450px;
+    min-height: 500px;
+
+    @include tablets {
+        background: url("../assets/background/product_tablets.png") center center no-repeat;
+        min-height: 420px;
+        min-width: 320px;
+    }
+
+    @include phones {
+        background: url("../assets/background/product__phones.png") center center no-repeat;
+        min-height: 335px;
+        min-width: 255px;
+    }
+
+    &--shortboard {
+        background: url("../assets/background/product_2.png") center center no-repeat;
+
+        @include tablets {
+            background: url("../assets/background/product-2__tablets.png") center center no-repeat;
+        }
+    
+        @include phones {
+            background: url("../assets/background/product-2__phones.png") center center no-repeat;
+        }
+    }
+}
+
+.products__content{
+    margin-left: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include tablets {
+         margin-left: 0;
+         align-items: center;
+    }
+}
+.products__title {
+    font-size: 2rem;
+    text-align: left;
+    margin-bottom: 1.4rem;
+    padding-top: 2.8rem;
+
+    @include tablets {
+        padding-top: 0;
+        text-align: center;
+    }
+
+    @include phones {
+        font-size: rem(30px);
+        margin-bottom: rem(13px);
+    }
+}
+
+.products__text{
+    margin-bottom: 1.4rem;
+    padding-right: 16%;
+    color: #666;
+
+    @include tablets {
+        padding: 0 15%;
+        text-align: center;
+    }
+
+    @include phones {
+        padding: 0 12%;
+        margin-bottom: rem(22px);
+    }
+}
+
+.products__benefits{
+    display: flex;
+
+    @include tablets {
+        justify-content: center;
+    }
+
+    @include phones {
+        margin-bottom: rem(22px);
+    }
+}
+
+.benefits__content{
+    font-weight: 700;
+}
+.benefits{
+    margin-left: 3rem;
+    margin-bottom: 1.4rem;
+    &:first-child{
+        margin-left: 0;
+    }
+}
+
+.benefits__name {
+    color: #666;
+}
+
+.products__price-item {
+    display: flex;
+    align-items: center;
+
+    @include tablets {
+        justify-content: center;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.products__price {
+    font-size: 60px;
+    font-weight: 300;
+
+    @include tablets {
+        margin-right: 2rem;
+    }
+}
+
+.products__btn {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.left-arrow {
+ margin-right: 1rem;
+ margin-left: 1rem;
+}
+
+.right-arrow {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.gear-btn__menu {
+    width: 270px ;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.98);
+    display: none;
+    position: absolute;
+    left: 90px;
+    top: 0;
+}
+
+.gear-btn__menu {
+    padding: 20px;
+}
+
+.menu-item { 
+    display: flex;
+    justify-content: space-between;
+}
+
+.bx-wrapper{
+    background-color:transparent;
+    border: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    min-width: 100%;
+    z-index: 10000;
+}
+
+.bx-wrapper .bx-controls-direction a {
+    @include tablets {
+        top: 31%;
+    }
+
+    @include phones {
+        top: 26%;
+    }
+}
+
+.bx-wrapper .bx-prev  {
+    position: absolute;
+    left: -35px;
+    background: url("../assets/icons/rightArrow.svg");
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+    
+    @include tablets {
+        left: 7rem;
+    }
+
+    @include phones {
+        left: 0;
+    }
+}
+
+.bx-wrapper .bx-next  {
+    position: absolute;
+    right: 35px;
+    background: url("../assets/icons/rightArrow.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    
+    &:hover {
+        color: #000;
+    }
+    
+    @include tablets {
+        right: 9rem;;
+    }
+
+    @include phones {
+        right: 1rem;
+    }
+}
+
+.bx-viewport {
+    height: rem(750px);
+}

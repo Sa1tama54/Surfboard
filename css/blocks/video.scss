@@ -1,0 +1,249 @@
+.container__video {
+  align-items: center;
+}
+
+.video__player {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.7777777778rem;
+  width: 100%;
+  height: 60vw;
+  max-width: 36.7777777778rem;
+  max-height: 21.7777777778rem;
+
+  @include tablets {
+    margin-top: 2.2222222222rem;
+    width: 86%;
+    height: 51vw;
+  }
+  
+  @include phones {
+    margin-top: 0;
+    max-width: none;
+    max-height: none;
+    height: 49vw;
+    width: 83%;
+  }
+}
+
+.video__player.active {
+  .video__content {
+    opacity: 0;
+    transition: .3s opacity ease-in-out;
+  }
+
+  .video__controls-pause {
+    display: flex;
+    max-width: 0.6111111111rem;
+    width: 0.6111111111rem;
+    min-width: 0.6111111111rem;
+    height: 0.8888888889rem;
+  }
+
+  .video__start {
+    display: none;
+  }
+
+  .video__duration {
+    display: block;
+  }
+}
+
+.video__wrapper{
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.video__youtube {
+  width: 100%;
+  height: 100%;
+}
+
+.video__content{
+  background: url("../assets/background/surf.jpg") center center / cover no-repeat;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  transition: 0.3s opacity ease-in-out;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+  @include tablets {
+    width: 100%;
+  }
+}
+
+.video__play {
+  width: 4.1666666667rem;
+  height: 6.1111111111rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(1);
+  background: url("../assets/icons/player.png") center center / cover no-repeat;
+
+  @include phones {
+    width: rem(44px);
+    height: rem(65px);
+  }
+}
+
+.video__controls {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #404040;
+  min-height: 1.8888888889rem;
+  height: 1.8888888889rem;
+  max-height: 1.8888888889rem;
+  padding: 0 1.3333333333rem 0 1.1111111111rem;
+
+  @include phones {
+    min-height: 1.3333333333rem;
+    height: 1.3333333333rem;
+    max-height: 1.3333333333rem;
+    padding: 0 0.7777777778rem 0 0.5555555556rem;
+  }
+}
+
+.video__controls-pause {
+  display: none;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 0;
+  height: 0;
+  cursor: pointer;
+}
+
+.video__start{
+  width: 11px;
+  height: 16px;
+  fill: #FFF;
+  cursor: pointer;
+}
+
+.pause__line {
+  width: 0.2222222222rem;
+  height: 100%;
+  border-radius: 0.0555555556rem;
+  background-color: #fff;
+}
+
+.video__controls-button {
+  margin-right: rem(16px);
+  display: flex;
+}
+
+.video__playback{
+  height: 16px;
+  width: 74%;
+  position: relative;
+  margin-right: 15px;
+  &::before{
+    position: absolute;
+    content: "";
+    height: 4px;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #626262;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  @include phones {
+    height: rem(2.3px);
+  }
+}
+
+.video__playback-button{
+  width: 13px;
+  height: 13px;
+  border: none;
+  border-radius: 50%;
+  background: #FEDB3F;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 35%;
+  cursor: pointer;
+
+  @include phones {
+    width: rem(9px);
+    height: rem(9px);
+  }
+}
+
+.video__controls .video__duration {
+  margin-right: 2.4444444444rem;
+  white-space: nowrap;
+  color: #929292;
+  font-weight: normal;
+  font-size: 0.8888888889rem;
+  line-height: 1.5;
+  display: none;
+
+  @include phones {
+    display: none;
+  }
+}
+
+.video__vol-control {
+  margin-left: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.video__vol-wrapper {
+  margin-right: rem(13px);
+  display: flex;
+}
+
+.video__vol-pic{
+  width: 13px;
+  height: 16px;
+  fill: #fff;
+  cursor: pointer;
+}
+
+.video__volume {
+    position: relative;
+    width: rem(34px);
+    height: rem(4px);
+    border-radius: 0.0555555556rem;
+    background-color: #626262;
+    cursor: pointer;
+
+    @include phones {
+      height: rem(2.3px);
+    }
+}
+
+.video__volume-button{
+  width: 13px;
+  height: 13px;
+  border: none;
+  border-radius: 50%;
+  background: #FEDB3F;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50%;
+
+  @include phones {
+    width: rem(9px);
+    height: rem(9px);
+  }
+}

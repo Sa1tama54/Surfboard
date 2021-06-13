@@ -1,0 +1,36 @@
+$containerWidth: 940px;
+$baseFontSize: 18px;
+
+//colors 
+$black: #292929;
+
+//breakpoints
+$tablets: 768px;
+$phones: 480px;
+$mini: 405px;
+
+//z-indexes
+$z-fixed: 100;
+
+@import "media";
+
+//setups
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,400&display=swap');
+@import "layout";
+
+//blocks
+@import "blocks/hero";
+@import "blocks/hamburger";
+@import "blocks/why";
+@import "blocks/products";
+@import "blocks/dropdown";
+@import "blocks/team";
+@import "blocks/accordion";
+@import "blocks/reviews";
+@import "blocks/video";
+@import "blocks/form";
+@import "blocks/modal";
+@import "blocks/map";
+@import "blocks/footer";
+@import "blocks/fixed";
+@import "blocks/fullscreen__menu";
