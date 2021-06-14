@@ -1,8 +1,4 @@
-$(document).ready(() =>{
-
-    $('.products__slider').bxSlider({
-        pager: false,
-        responsive: true,
-    });
-
+const slider = $(".products__slider").bxSlider({
+  pager: false,
+  responsive: true
 });

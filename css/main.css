@@ -900,7 +900,7 @@ button {
   background-position: right;
 }
 .bx-wrapper .bx-next:hover {
-  color: #000;
+  background-position: right;
 }
 @media screen and (max-width: 768px) {
   .bx-wrapper .bx-next {

@@ -230,9 +230,9 @@
     background-position: right;
     
     &:hover {
-        color: #000;
+        background-position: right;
     }
-    
+
     @include tablets {
         right: 9rem;;
     }
