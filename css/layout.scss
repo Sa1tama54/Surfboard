@@ -67,7 +67,8 @@ button {
   will-change: transform;
 }
 .section{
-  height: 100vh;
+  height: 100%;
+  min-height: 650px;
   margin: auto;
   overflow: hidden;
 
