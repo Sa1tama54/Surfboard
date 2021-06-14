@@ -41,6 +41,8 @@
     textBlock.width(textBlockWidth)
   };
 
+  
+
   $(".accordion-item__title").click((e) => {
     e.preventDefault();
 

@@ -84,5 +84,13 @@
 }
 
 .accordion__container {
-  padding: rem(40px) rem(73px) rem(45px) rem(26px);
+  padding: rem(31px) rem(41px);
+
+  @include phones {
+    padding: rem(35px) rem(30px);
+  }
+}
+
+.accordion__content-text {
+  line-height: 1.3;
 }
