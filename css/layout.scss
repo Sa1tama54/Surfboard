@@ -1,6 +1,7 @@
 *{
   box-sizing: border-box;
 }
+
 .wrapper {
   position: relative;
   width: 100%;
@@ -17,6 +18,7 @@ html{
     font-size: 10px;
   }
 }
+
 body{
   height: 100%;
   font-family: 'Alegreya Sans', sans-serif;
@@ -59,6 +61,7 @@ button {
   height: 100%;
 
 }
+
 .maincontent{
   position: relative;
   height: 100%;
@@ -66,18 +69,17 @@ button {
   transition: transform 1s;
   will-change: transform;
 }
+
 .section{
-  height: 100vh;
+  height: 100%;
   margin: auto;
   overflow: hidden;
 
   .active {
     display: flex;
   }
-
-  @include phones {
-    height: 100%;
 }
+
 .container{
   height: 100%;
   display: flex;

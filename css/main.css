@@ -77,7 +77,7 @@ button {
 }
 
 .section {
-  height: 100vh;
+  height: 100%;
   margin: auto;
   overflow: hidden;
 }
@@ -85,18 +85,6 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-@media screen and (max-width: 480px) {
-  .section {
-    height: 100%;
-    min-height: 650px;
-  }
-}
-@media screen and (max-width: 405px) {
-  .section {
-    height: 100vh;
-    min-height: auto;
-  }
 }
 
 .container {
