@@ -81,6 +81,7 @@
   position: relative;
   overflow: hidden;
   transition: width .7s;
+  backdrop-filter: blur(10px);
 }
 
 .accordion__container {

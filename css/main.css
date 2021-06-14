@@ -1331,6 +1331,8 @@ button {
   overflow: hidden;
   -webkit-transition: width 0.7s;
   transition: width 0.7s;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
 
 .accordion__container {
