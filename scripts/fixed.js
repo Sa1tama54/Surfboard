@@ -1,5 +1,11 @@
 const sections = $("section");
 const display = $(".maincontent");
+const sideMenu = $(".fixed__list");
+const menuItems = sideMenu.find(".fixed__item");
+
+const mobileDetect = new MobileDetect(window.navigator.userAgent);
+const isMobile = mobileDetect.mobile();
+
 let inScroll = false;
 
 const countSectionPosition = sectionEq =>{
