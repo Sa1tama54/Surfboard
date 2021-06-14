@@ -1,133 +1,96 @@
 const sections = $("section");
 const display = $(".maincontent");
-const sideMenu = $(".fixed");
-const menuItems = sideMenu.find(".fixed__item");
-
 let inScroll = false;
+
+const countSectionPosition = sectionEq =>{
+  return sectionEq *-100;
+}
 
 sections.first().addClass("active");
 
-const countSectionPosition = (sectionEq) => {
-  const position = sectionEq * -100;
-
-  if (isNaN(position)) {
-    console.error("передано не верное значение в countSectionPosition");
-    return 0;
-  }
-
-  return position;
-};
-
-const changeMenuThemeForSection = (sectionEq) => {
-  const currentSection = sections.eq(sectionEq);
-  const menuTheme = currentSection.attr("data-sidemenu-theme");
-  const activeClass = "fixed-menu--shadowed";
-
-  if (menuTheme === "black") {
-    sideMenu.addClass(activeClass);
-  } else {
-    sideMenu.removeClass(activeClass);
-  }
-};
-
-const resetActiveClassForItem = (items, itemEq, activeClass) => {
-  items.eq(itemEq).addClass(activeClass).siblings().removeClass(activeClass);
-};
-
-const performTransition = (sectionEq) => {
-  if (inScroll) return;
-
-  const transitionOver = 1000;
-  const mouseInertiaOver = 300;
-
-  inScroll = true;
-
-  const position = countSectionPosition(sectionEq);
-
-  changeMenuThemeForSection(sectionEq);
+const performTransition = sectionEq =>{
+  if (inScroll === false){
+      inScroll = true;
+      const position = countSectionPosition(sectionEq);
+      const sideMenu = $(".fixed");
 
   display.css({
-    transform: `translateY(${position}%)`,
+      transform: `translateY(${position}%)`
+
   });
 
-  resetActiveClassForItem(sections, sectionEq, "active");
-  resetActiveClassForItem(menuItems, sectionEq, "fixed__item--active");
+  sideMenu.find(".fixed__item").eq(sectionEq).addClass("fixed__item--active").siblings().removeClass("fixed__item--active");
 
-  setTimeout(() => {
-    inScroll = false;
-  }, transitionOver + mouseInertiaOver);
+  sections.eq(sectionEq).addClass("active").siblings().removeClass("active");
+
+      setTimeout(() =>{
+          inScroll = false;
+      }, 1010);
+  };
 };
+  
 
-const viewportScroller = () => {
+const scrollViewport = direction =>{
   const activeSection = sections.filter(".active");
   const nextSection = activeSection.next();
   const prevSection = activeSection.prev();
 
-  return {
-    next() {
-      if (nextSection.length) {
-        performTransition(nextSection.index());
-      }
-    },
-    prev() {
-      if (prevSection.length) {
-        performTransition(prevSection.index());
-      }
-    },
-  };
-};
+  if (direction === "next" && nextSection.length){
+    performTransition(nextSection.index())
+  }
+  if (direction === "prev" && prevSection.length){
+    performTransition(prevSection.index())
+  }
+}
 
-$(window).on("wheel", (e) => {
+$(window).on("wheel", e=>{
   const deltaY = e.originalEvent.deltaY;
-  const scroller = viewportScroller();
-
-  if (deltaY > 0) {
-    scroller.next();
+  
+  if(deltaY >0){
+    scrollViewport("next");
   }
 
-  if (deltaY < 0) {
-    scroller.prev();
+  if(deltaY <0){
+    scrollViewport("prev");
   }
+  console.log(deltaY);
 });
 
-$(window).on("keydown", (e) => {
-  const tagName = e.target.tagName.toLowerCase();
-  const userTypingInInputs = tagName === "input" || tagName === "textarea";
-  const scroller = viewportScroller();
-
-  if (userTypingInInputs) return;
+$(window).on("keydown", e=>{
 
   switch (e.keyCode) {
     case 38:
-      scroller.prev();
-      break;
-
+      scrollViewport("prev");
+    break;
     case 40:
-      scroller.next();
+      scrollViewport("next");
       break;
   }
-});
 
-$(".wrapper").on("touchmove", (e) => e.preventDefault());
+})
 
-$("[data-scroll-to]").click((e) => {
+$(".wrapper").on("touchmove", e=> e.preventDefault());
+
+$("[data-scroll-to]").click(e=>{
   e.preventDefault();
 
   const $this = $(e.currentTarget);
   const target = $this.attr("data-scroll-to");
-  const reqSection = $(`[data-section-id=${target}]`);
+  const reqSeqtion = $(`[data-section-id=${target}]`);
 
-  performTransition(reqSection.index());
+  performTransition(reqSeqtion.index());
+
 });
 
-$("body").swipe({
-  swipe: function (event, direction) {
-    const scroller = viewportScroller();
-    let scrollDirection = "";
+$("body").swipe( {
+  swipe:function(event, direction) {
+    const scroller = scrollViewport();
+    let scrollDirection ="";
+    
+    if(direction ==="up") scrollDirection= "next";
+    if(direction ==="down") scrollDirection= "prev";
 
-    if (direction === "up") scrollDirection = "next";
-    if (direction === "down") scrollDirection = "prev";
+    scrollViewport(scrollDirection);
 
-    scroller[scrollDirection]();
   },
 });
