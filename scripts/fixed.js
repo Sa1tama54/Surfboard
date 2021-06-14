@@ -1,11 +1,5 @@
 const sections = $("section");
 const display = $(".maincontent");
-const sideMenu = $(".fixed__list");
-const menuItems = sideMenu.find(".fixed__item");
-
-const mobileDetect = new MobileDetect(window.navigator.userAgent);
-const isMobile = mobileDetect.mobile();
-
 let inScroll = false;
 
 const countSectionPosition = sectionEq =>{
@@ -18,7 +12,7 @@ const performTransition = sectionEq =>{
     if (inScroll === false){
         inScroll = true;
         const position = countSectionPosition(sectionEq);
-        const sideMenu = $(".fixed");
+        const sideMenu = $(".page");
 
     display.css({
         transform: `translateY(${position}%)`
@@ -97,30 +91,5 @@ $("body").swipe( {
 
         scrollViewport(scrollDirection);
 
-    },
-});
-
-$("[data-link]").click(event => {
-    event.preventDefault();
-    let click = $(event.currentTarget);
-    let clickID = click.attr("data-link");
-    let sectMOVE = $(`[data-id=${clickID}]`);
-
-    MOVE(sectMOVE.index());
-});
-
-
-if (isMobile) {
-    // https://github.com/mattbryson/TouchSwipe-Jquery-Plugin
-    $("body").swipe({
-      swipe: function (event, direction) {
-        const scroller = viewportScroller();
-        let scrollDirection = "";
-  
-        if (direction === "up") scrollDirection = "next";
-        if (direction === "down") scrollDirection = "prev";
-  
-        scroller[scrollDirection]();
       },
     });
-}
